@@ -122,5 +122,5 @@ function draw() {
   const brightness = Math.round(latestData);
   const hexColor = rgbToHex(brightness, brightness, brightness)
 
-  document.getElementById('sky').setAttribute('color', hexColor)
+  document.getElementById('sphere').setAttribute('color', hexColor)
 }
