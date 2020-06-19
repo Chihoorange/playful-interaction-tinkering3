@@ -106,9 +106,21 @@ function gotRawData(thedata) {
 // serial.available() returns the number of bytes available in the buffer
 // serial.write(somevar) writes out the value of somevar to the serial device
 
+// Functions to convert rgb to hex
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
 var recentlyTalked = false;
 function draw() {
   // latestData
+  const brightness = Math.round(latestData);
+  const hexColor = rgbToHex(brightness, brightness, brightness)
 
-  document.getElementById('sky').attr('color', '#000')
+  document.getElementById('sky').setAttribute('color', hexColor)
 }
